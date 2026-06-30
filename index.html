@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Farnese | Food • Coffee • Drink</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+
+font-family:Poppins,sans-serif;
+background:#f8f5f1;
+color:#222;
+overflow-x:hidden;
+
+}
+
+section{
+
+padding:120px 10%;
+
+}
+
+img{
+
+max-width:100%;
+display:block;
+
+}
+
+a{
+
+text-decoration:none;
+color:white;
+
+}
+
+ul{
+
+list-style:none;
+
+}
+
+h1,h2,h3{
+
+font-family:"Cormorant Garamond",serif;
+
+}
+
+header{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:25px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+z-index:999;
+transition:.4s;
+
+}
+
+header.scrolled{
+
+background:white;
+box-shadow:0 5px 20px rgba(0,0,0,.1);
+
+}
+
+header.scrolled a{
+
+color:#222;
+
+}
+
+.logo{
+
+font-size:34px;
+font-weight:700;
+letter-spacing:4px;
+
+}
+
+.logo span{
+
+display:block;
+font-size:12px;
+letter-spacing:6px;
+font-family:Poppins;
+
+}
+
+nav ul{
+
+display:flex;
+gap:40px;
+
+}
+
+nav a{
+
+font-size:14px;
+letter-spacing:2px;
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#c59d5f;
+
+}
+
+.hero{
+
+height:100vh;
+
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+url("https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1600&q=80");
+
+background-size:cover;
+background-position:center;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+
+color:white;
+
+}
+
+.hero-content{
+
+max-width:800px;
+
+}
+
+.hero h1{
+
+font-size:90px;
+letter-spacing:8px;
+
+}
+
+.hero p{
+
+margin:25px 0;
+font-size:20px;
+font-weight:300;
+letter-spacing:2px;
+
+}
+
+.btn{
+
+display:inline-block;
+padding:18px 45px;
+border:2px solid white;
+transition:.4s;
+letter-spacing:2px;
+font-size:14px;
+
+}
+
+.btn:hover{
+
+background:white;
+color:#222;
+
+}
+
+.wave{
+
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+
+}
+
+/* ---------- CHI SIAMO ---------- */
+
+.about{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:70px;
+align-items:center;
+
+}
+
+.about img{
+
+border-radius:20px;
+box-shadow:0 25px 40px rgba(0,0,0,.15);
+
+}
+
+.subtitle{
+
+color:#b8894d;
+font-size:14px;
+letter-spacing:3px;
+text-transform:uppercase;
+margin-bottom:10px;
+
+}
+
+.title{
+
+font-size:55px;
+margin-bottom:25px;
+
+}
+
+.about p{
+
+line-height:1.9;
+color:#666;
+margin-bottom:20px;
+
+}
+
+
+/* ---------- SERVIZI ---------- */
+
+.services{
+
+background:#fff;
+
+}
+
+.cards{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:60px;
+
+}
+
+.card{
+
+padding:45px;
+background:#fafafa;
+border-radius:20px;
+transition:.4s;
+text-align:center;
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.1);
+
+}
+
+.card i{
+
+font-size:50px;
+margin-bottom:20px;
+
+}
+
+.card h3{
+
+font-size:30px;
+margin-bottom:15px;
+
+}
+
+.card p{
+
+color:#666;
+line-height:1.7;
+
+}
+
+
+/* ---------- GALLERIA ---------- */
+
+.gallery{
+
+background:#f3efe9;
+
+}
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+
+gap:20px;
+
+margin-top:50px;
+
+}
+
+.grid img{
+
+height:320px;
+width:100%;
+object-fit:cover;
+
+border-radius:15px;
+
+transition:.6s;
+
+cursor:pointer;
+
+}
+
+.grid img:hover{
+
+transform:scale(1.06);
+
+}
+
+
+/* ---------- CONTATTI ---------- */
+
+.contact{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:70px;
+
+align-items:center;
+
+}
+
+.info h3{
+
+font-size:35px;
+
+margin-bottom:25px;
+
+}
+
+.info p{
+
+margin-bottom:15px;
+
+font-size:18px;
+
+color:#666;
+
+line-height:1.8;
+
+}
+
+iframe{
+
+width:100%;
+
+height:450px;
+
+border:none;
+
+border-radius:20px;
+
+}
+
+
+/* ---------- FOOTER ---------- */
+
+footer{
+
+background:#1f1f1f;
+
+color:white;
+
+padding:80px 10%;
+
+text-align:center;
+
+}
+
+footer h2{
+
+font-size:45px;
+
+letter-spacing:5px;
+
+margin-bottom:20px;
+
+}
+
+footer p{
+
+color:#bbb;
+
+margin:8px 0;
+
+}
+
+
+/* ---------- ANIMAZIONI ---------- */
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(80px);
+
+transition:1s;
+
+}
+
+.reveal.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:55px;
+
+}
+
+.about,
+.contact{
+
+grid-template-columns:1fr;
+
+}
+
+nav{
+
+display:none;
+
+}
+
+section{
+
+padding:90px 8%;
+
+}
+
+.title{
+
+font-size:42px;
+
+}
+
+}
+</style>
+
+</head>
+
+<body>
+
+<header id="header">
+
+    <div class="logo">
+        Farnese
+        <span>FOOD • COFFEE • DRINK</span>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li><a href="#about">CHI SIAMO</a></li>
+            <li><a href="#services">SPECIALITÀ</a></li>
+            <li><a href="#gallery">GALLERIA</a></li>
+            <li><a href="#contact">CONTATTI</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Farnese food coffe & drinks</h1>
+
+        <p>
+            Food • Coffee • Drink
+        </p>
+
+        <p style="font-size:18px;max-width:650px;margin:auto;line-height:1.8;">
+            Il tuo punto di ritrovo a Parma.
+            Colazioni, pause caffè, pranzi veloci e aperitivi
+            in un ambiente elegante, familiare e accogliente.
+        </p>
+
+        <br><br>
+
+        <a href="#about" class="btn">
+            SCOPRI DI PIÙ
+        </a>
+
+    </div>
+
+</section>
+
+<section class="about reveal" id="about">
+
+    <div>
+
+        <div class="subtitle">
+            Benvenuti
+        </div>
+
+        <h2 class="title">
+            Il gusto della semplicità
+        </h2>
+
+        <p>
+
+            Situato a Parma, in Via Carlo Pisacane 14,
+            Farnese nasce dalla passione per il buon caffè,
+            la cucina semplice e i momenti condivisi.
+
+        </p>
+
+        <p>
+
+            Ogni giorno accogliamo i nostri clienti con
+            prodotti freschi, colazioni fragranti,
+            aperitivi curati e un ambiente dove sentirsi a casa.
+
+        </p>
+
+        <br>
+
+        <a href="#contact" class="btn" style="border-color:#222;color:#222;">
+            DOVE SIAMO
+        </a>
+
+    </div>
+
+    <div>
+
+        <img src="unnamed.webp">
+
+    </div>
+
+</section>
+
+<section class="services reveal" id="services">
+
+<center>
+
+<div class="subtitle">
+Le nostre specialità
+</div>
+
+<h2 class="title">
+Ogni momento della giornata
+</h2>
+
+</center>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>☕</h3>
+
+<h3>Caffetteria</h3>
+
+<p>
+
+Espresso, cappuccino, caffè speciali
+e bevande calde preparate con cura.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🥐</h3>
+
+<h3>Colazioni</h3>
+
+<p>
+
+Brioches appena sfornate,
+toast, spremute e dolci per iniziare bene la giornata.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🍹</h3>
+
+<h3>Aperitivi</h3>
+
+<p>
+
+Cocktail, spritz,
+taglieri e stuzzichini da condividere.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🍽️</h3>
+
+<h3>Pranzi</h3>
+
+<p>
+
+Piatti veloci,
+insalatone,
+panini gourmet e proposte del giorno.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+<section class="gallery reveal" id="gallery">
+
+    <center>
+
+        <div class="subtitle">
+            Galleria
+        </div>
+
+        <h2 class="title">
+            Vivi l'atmosfera del Farnese food coffe & drinks
+        </h2>
+
+    </center>
+
+    <div class="grid">
+
+        <img src="foto1.webp">
+
+        <img src="foto2.webp">
+
+        <img src="foto5).webp">
+
+        <img src="foto3.webp">
+
+        <img src="foto3).webp">
+
+        <img src="foto6.webp">
+
+    </div>
+
+</section>
+
+
+<section class="contact reveal" id="contact">
+
+    <div class="info">
+
+        <div class="subtitle">
+            Contatti
+        </div>
+
+        <h2 class="title">
+            Vieni a trovarci
+        </h2>
+
+        <p>
+            📍 Via Carlo Pisacane<br>
+            Parma
+        </p>
+
+        <p>
+            ☕ Food • Coffee • Drink
+        </p>
+
+        <p>
+            🕒 Aperto tutti i giorni
+        </p>
+
+        <p>
+            📞 349 092 3754
+        </p>
+
+        <p>
+            📷 Instagram: @Farnese
+        </p>
+
+    </div>
+
+    <div>
+
+        <iframe
+            src="https://www.google.com/maps?q=Via+Carlo+Pisacane+Parma&output=embed"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    <h2>Farnese</h2>
+
+    <p>Food • Coffee • Drink</p>
+
+    <br>
+
+    <p>Via Carlo Pisacane - Parma</p>
+
+    <p>Colazioni • Caffetteria • Pranzi • Aperitivi</p>
+
+    <br>
+
+    <p>© 2026 Farnese - Tutti i diritti riservati.</p>
+
+</footer>
+<script>
+
+// Navbar che cambia colore durante lo scroll
+
+const header = document.getElementById("header");
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 80){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+});
+
+
+
+// Animazione delle sezioni
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealSections(){
+
+    const windowHeight = window.innerHeight;
+
+    reveals.forEach(section=>{
+
+        const top = section.getBoundingClientRect().top;
+
+        if(top < windowHeight - 120){
+
+            section.classList.add("active");
+
+        }
+
+    });
+
+}
+
+window.addEventListener("scroll", revealSections);
+
+revealSections();
+
+
+
+// Evidenzia la voce del menu durante lo scroll
+
+const sections = document.querySelectorAll("section");
+const navLinks = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll",()=>{
+
+    let current="";
+
+    sections.forEach(section=>{
+
+        const sectionTop = section.offsetTop - 150;
+
+        if(window.pageYOffset >= sectionTop){
+
+            current = section.getAttribute("id");
+
+        }
+
+    });
+
+    navLinks.forEach(link=>{
+
+        link.style.color="";
+
+        if(link.getAttribute("href")==="#"+current){
+
+            link.style.color="#c59d5f";
+
+        }
+
+    });
+
+});
+
+
+
+// Effetto comparsa Hero
+
+window.onload = ()=>{
+
+    document.querySelector(".hero-content").style.opacity="0";
+    document.querySelector(".hero-content").style.transform="translateY(50px)";
+
+    setTimeout(()=>{
+
+        document.querySelector(".hero-content").style.transition="1.5s";
+        document.querySelector(".hero-content").style.opacity="1";
+        document.querySelector(".hero-content").style.transform="translateY(0px)";
+
+    },300);
+
+};
+
+// Smooth scroll migliorato (più fluido tra sezioni)
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+    anchor.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute("href"));
+
+        target.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    });
+
+});
+
+
+
+// Effetto parallasse leggero sulla hero
+
+window.addEventListener("scroll", () => {
+
+    const hero = document.querySelector(".hero");
+
+    let offset = window.scrollY * 0.5;
+
+    hero.style.backgroundPosition = `center ${offset}px`;
+
+});
+
+
+
+// Effetto click sulle immagini della gallery (lightbox semplice)
+
+const images = document.querySelectorAll(".grid img");
+
+images.forEach(img => {
+
+    img.addEventListener("click", () => {
+
+        const overlay = document.createElement("div");
+
+        overlay.style.position = "fixed";
+
+        overlay.style.top = "0";
+
+        overlay.style.left = "0";
+
+        overlay.style.width = "100%";
+
+        overlay.style.height = "100%";
+
+        overlay.style.background = "rgba(0,0,0,0.9)";
+
+        overlay.style.display = "flex";
+
+        overlay.style.alignItems = "center";
+
+        overlay.style.justifyContent = "center";
+
+        overlay.style.zIndex = "9999";
+
+        overlay.style.cursor = "zoom-out";
+
+        overlay.innerHTML = `<img src="${img.src}" style="max-width:90%; max-height:90%; border-radius:10px;">`;
+
+        document.body.appendChild(overlay);
+
+        overlay.addEventListener("click", () => overlay.remove());
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+</script>

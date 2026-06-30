@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght=300;400;500;600;700&family=Poppins:wght=300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
 
@@ -70,12 +70,13 @@ position:fixed;
 top:0;
 left:0;
 width:100%;
-padding:25px 8%;
+padding:25px 8%; 
 display:flex;
 justify-content:space-between;
 align-items:center;
 z-index:999;
 transition:.4s;
+background: transparent;
 
 }
 
@@ -83,6 +84,7 @@ header.scrolled{
 
 background:white;
 box-shadow:0 5px 20px rgba(0,0,0,.1);
+padding:15px 8%;
 
 }
 
@@ -94,19 +96,40 @@ color:#222;
 
 .logo{
 
-font-size:34px;
-font-weight:700;
-letter-spacing:4px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
 
+}
+
+.logo img {
+max-height: 130px; 
+width: auto;
+display: block;
+margin-bottom: 2px; 
+filter: drop-shadow(0px 0px 15px rgba(255, 255, 255, 0.8)) drop-shadow(0px 0px 5px rgba(255, 255, 255, 0.9));
+transition: .4s;
+}
+
+header.scrolled .logo img {
+filter: drop-shadow(0 0 0 transparent);
 }
 
 .logo span{
 
 display:block;
-font-size:12px;
-letter-spacing:6px;
+font-size:11px;
+letter-spacing:4px;
 font-family:Poppins;
+color: white; 
+text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+transition: .4s;
 
+}
+
+header.scrolled .logo span {
+color: #222; 
+text-shadow: none;
 }
 
 nav ul{
@@ -121,12 +144,19 @@ nav a{
 font-size:14px;
 letter-spacing:2px;
 transition:.3s;
+color: white; 
+text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 
+}
+
+header.scrolled nav a {
+color: #222; 
+text-shadow: none;
 }
 
 nav a:hover{
 
-color:#c59d5f;
+color:#c59d5f !important;
 
 }
 
@@ -146,29 +176,33 @@ justify-content:center;
 align-items:center;
 text-align:center;
 
-color:white;
-
 }
 
 .hero-content{
 
 max-width:800px;
+display: flex;
+flex-direction: column;
+align-items: center;
 
 }
 
-.hero h1{
-
-font-size:90px;
-letter-spacing:8px;
-
+.hero-logo {
+max-width: 650px; 
+width: 100%;
+height: auto;
+margin: 0 auto 15px auto;
+filter: drop-shadow(0px 0px 25px rgba(255, 255, 255, 0.85)) drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.9));
 }
 
 .hero p{
 
-margin:25px 0;
+margin:20px 0;
 font-size:20px;
 font-weight:300;
 letter-spacing:2px;
+color: white;
+text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 
 }
 
@@ -180,6 +214,8 @@ border:2px solid white;
 transition:.4s;
 letter-spacing:2px;
 font-size:14px;
+color: white;
+background: rgba(0,0,0,0.1);
 
 }
 
@@ -187,15 +223,6 @@ font-size:14px;
 
 background:white;
 color:#222;
-
-}
-
-.wave{
-
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
 
 }
 
@@ -402,14 +429,14 @@ text-align:center;
 
 }
 
-footer h2{
-
-font-size:45px;
-
-letter-spacing:5px;
-
-margin-bottom:20px;
-
+/* --- MODIFICATO: Stile per il logo nel footer --- */
+.footer-logo {
+max-width: 650px; /* Grande come all'inizio */
+width: 100%;
+height: auto;
+margin: 0 auto 20px auto;
+/* Stesso alone protettivo per rendere leggibile il nero e splendente l'oro */
+filter: drop-shadow(0px 0px 25px rgba(255, 255, 255, 0.85)) drop-shadow(0px 0px 10px rgba(255, 255, 255, 0.9));
 }
 
 footer p{
@@ -446,10 +473,12 @@ transform:translateY(0);
 
 @media(max-width:900px){
 
-.hero h1{
+.logo img {
+max-height: 80px; 
+}
 
-font-size:55px;
-
+.hero-logo, .footer-logo {
+max-width: 320px; 
 }
 
 .about,
@@ -487,7 +516,7 @@ font-size:42px;
 <header id="header">
 
     <div class="logo">
-        Farnese
+        <img src="farneseLogo1.png" alt="Farnese Logo">
         <span>FOOD • COFFEE • DRINK</span>
     </div>
 
@@ -507,11 +536,7 @@ font-size:42px;
 
     <div class="hero-content">
 
-        <h1>Farnese food coffe & drinks</h1>
-
-        <p>
-            Food • Coffee • Drink
-        </p>
+        <img src="farneseLogo1.png" alt="Farnese Food Coffee & Drinks" class="hero-logo">
 
         <p style="font-size:18px;max-width:650px;margin:auto;line-height:1.8;">
             Il tuo punto di ritrovo a Parma.
@@ -552,7 +577,7 @@ font-size:42px;
         <p>
 
             Ogni giorno accogliamo i nostri clienti con
-            prodotti freschi, colazioni fragranti,
+            prodotti frescos, colazioni fragranti,
             aperitivi curati e un ambiente dove sentirsi a casa.
 
         </p>
@@ -699,7 +724,7 @@ panini gourmet e proposte del giorno.
         </h2>
 
         <p>
-            📍 Via Carlo Pisacane<br>
+            📍 Via Carlo Pisacane 14<br>
             Parma
         </p>
 
@@ -724,7 +749,7 @@ panini gourmet e proposte del giorno.
     <div>
 
         <iframe
-            src="https://www.google.com/maps?q=Via+Carlo+Pisacane+Parma&output=embed"
+            src="https://www.google.com/maps?q=Via+Carlo+Pisacane+14+Parma&output=embed"
             loading="lazy">
         </iframe>
 
@@ -735,13 +760,14 @@ panini gourmet e proposte del giorno.
 
 <footer>
 
-    <h2>Farnese</h2>
+    <!-- Modificato: Inserito lo stesso logo gigante e protetto al posto del testo -->
+    <img src="farneseLogo1.png" alt="Farnese Food Coffee & Drinks" class="footer-logo">
 
     <p>Food • Coffee • Drink</p>
 
     <br>
 
-    <p>Via Carlo Pisacane - Parma</p>
+    <p>Via Carlo Pisacane 14 - Parma</p>
 
     <p>Colazioni • Caffetteria • Pranzi • Aperitivi</p>
 
@@ -751,8 +777,6 @@ panini gourmet e proposte del giorno.
 
 </footer>
 <script>
-
-// Navbar che cambia colore durante lo scroll
 
 const header = document.getElementById("header");
 
@@ -772,8 +796,6 @@ window.addEventListener("scroll", () => {
 
 
 
-// Animazione delle sezioni
-
 const reveals = document.querySelectorAll(".reveal");
 
 function revealSections(){
@@ -788,6 +810,10 @@ function revealSections(){
 
             section.classList.add("active");
 
+        }else{
+
+            section.classList.remove("active");
+
         }
 
     });
@@ -799,8 +825,6 @@ window.addEventListener("scroll", revealSections);
 revealSections();
 
 
-
-// Evidenzia la voce del menu durante lo scroll
 
 const sections = document.querySelectorAll("section");
 const navLinks = document.querySelectorAll("nav a");
@@ -837,8 +861,6 @@ window.addEventListener("scroll",()=>{
 
 
 
-// Effetto comparsa Hero
-
 window.onload = ()=>{
 
     document.querySelector(".hero-content").style.opacity="0";
@@ -854,7 +876,7 @@ window.onload = ()=>{
 
 };
 
-// Smooth scroll migliorato (più fluido tra sezioni)
+
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
@@ -878,8 +900,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 
 
-// Effetto parallasse leggero sulla hero
-
 window.addEventListener("scroll", () => {
 
     const hero = document.querySelector(".hero");
@@ -891,8 +911,6 @@ window.addEventListener("scroll", () => {
 });
 
 
-
-// Effetto click sulle immagini della gallery (lightbox semplice)
 
 const images = document.querySelectorAll(".grid img");
 
@@ -938,4 +956,3 @@ images.forEach(img => {
 
 </body>
 </html>
-</script>
